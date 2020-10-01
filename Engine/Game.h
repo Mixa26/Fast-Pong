@@ -23,6 +23,9 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Vec2.h"
+#include "Paddle.h"
+#include "Ball.h"
 
 class Game
 {
@@ -42,5 +45,8 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	Paddle player1;
+	Paddle PC;
+	Ball ball;
 	/********************************/
 };

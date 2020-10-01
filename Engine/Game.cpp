@@ -24,7 +24,10 @@
 Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
-	gfx( wnd )
+	gfx( wnd ),
+	player1( {Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2} ),
+	PC( { PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2 } ),
+	ball( {Graphics::ScreenWidth / 2 - ball.GetDimension() / 2, Graphics::ScreenHeight / 2 - ball.GetDimension() / 2} )
 {
 }
 
@@ -42,4 +45,7 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
+	player1.Draw(gfx);
+	PC.Draw(gfx);
+	ball.Draw(gfx);
 }
