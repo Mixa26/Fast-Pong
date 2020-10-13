@@ -12,6 +12,7 @@ public:
 	void PC(Ball& in_ball);
 	void Move(float dt);
 	void Allign();
+	void Collide(Ball& in_ball);
 	int GetHeight();
 	int GetWidth();
 	Vec2 GetLoc();

@@ -54,6 +54,68 @@ void Paddle::Allign()
 	}
 }
 
+void Paddle::Collide(Ball & in_ball)
+{
+	if ((in_ball.GetLoc().y + in_ball.GetDimension() >= loc.y && in_ball.GetLoc().y <= loc.y + height) && (in_ball.GetLoc().x + in_ball.GetDimension() >= loc.x && in_ball.GetLoc().x <= loc.x + width))
+	{
+		if (in_ball.GetLoc().y < loc.y + height * 20 / 100)
+		{
+			if (in_ball.speed.x > 0)
+			{
+				in_ball.speed = Vec2(-500, -800);
+			}
+			else if (in_ball.speed.x < 0)
+			{
+				in_ball.speed = Vec2(500, -800);
+			}
+		}
+		else if (in_ball.GetLoc().y < loc.y + height * 40 / 100)
+		{
+			if (in_ball.speed.x > 0)
+			{
+				in_ball.speed = Vec2(-600, -600);
+			}
+			else if (in_ball.speed.x < 0)
+			{
+				in_ball.speed = Vec2(600, -600);
+			}
+		}
+		else if (in_ball.GetLoc().y < loc.y + height * 60 / 100)
+		{
+			if (in_ball.speed.x > 0)
+			{
+				in_ball.speed = Vec2(-600, 0);
+			}
+			else if (in_ball.speed.x < 0)
+			{
+				in_ball.speed = Vec2(600, 0);
+			}
+		}
+		else if (in_ball.GetLoc().y < loc.y + height * 80 / 100)
+		{
+			if (in_ball.speed.x > 0)
+			{
+				in_ball.speed = Vec2(-600, 600);
+			}
+			else if (in_ball.speed.x < 0)
+			{
+				in_ball.speed = Vec2(600, 600);
+			}
+		}
+		else if (in_ball.GetLoc().y < loc.y + height)
+		{
+			if (in_ball.speed.x > 0)
+			{
+				in_ball.speed = Vec2(-500, 700);
+			}
+			else if (in_ball.speed.x < 0)
+			{
+				in_ball.speed = Vec2(500, 700);
+			}
+		}
+	}
+}
+
 int Paddle::GetHeight()
 {
 	return height;

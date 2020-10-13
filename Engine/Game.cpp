@@ -27,7 +27,7 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd ),
 	player1( Vec2(Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2), Vec2(0, 0)),
 	PC( Vec2( PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2 ), Vec2(0, 0)),
-	ball( Vec2(float(Graphics::ScreenWidth / 2 - ball.GetDimension() / 2), float(Graphics::ScreenHeight / 2 - ball.GetDimension() / 2)), Vec2(0, 0))
+	ball( Vec2(float(Graphics::ScreenWidth / 2 - ball.GetDimension() / 2), float(Graphics::ScreenHeight / 2 - ball.GetDimension() / 2)), Vec2(500, 0))
 {
 }
 
@@ -43,6 +43,7 @@ void Game::UpdateModel()
 {
 	float dt = ft.Mark();
 
+	//player paddle movement processing
 	if (wnd.kbd.KeyIsPressed(VK_UP) && player1.GetLoc().y > 0.0f)
 	{
 		player1.speed = Vec2(0, -500);
@@ -57,13 +58,19 @@ void Game::UpdateModel()
 	}
 
 	player1.Move(dt);
+	
 	ball.Move(dt);
 
-	player1.Allign();
+	//all the collisions to keep stuff on the screen
+	player1.Allign(); //keeps the pedals on the screen
+	ball.WallCollide();
+	player1.Collide(ball);
+	PC.Collide(ball);
 }
 
 void Game::ComposeFrame()
 {
+	//all the in game graphic drawing
 	player1.Draw(gfx);
 	PC.Draw(gfx);
 	ball.Draw(gfx);

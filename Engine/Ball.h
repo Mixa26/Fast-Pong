@@ -11,6 +11,7 @@ public:
 	void Draw(Graphics& in_gfx);
 	int GetDimension();
 	void Move(float dt);
+	void WallCollide();
 	Vec2 GetLoc();
 public:
 	Vec2 speed;

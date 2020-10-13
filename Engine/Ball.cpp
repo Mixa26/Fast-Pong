@@ -27,6 +27,20 @@ void Ball::Move(float dt)
 	loc += speed * dt;
 }
 
+void Ball::WallCollide()
+{
+	if (loc.y < 0)
+	{
+		loc.y = 0;
+		speed.y *= -1;
+	}
+	if (loc.y + dimension > Graphics::ScreenHeight - 1)
+	{
+		loc.y = Graphics::ScreenHeight - dimension - 1;
+		speed.y *= -1;
+	}
+}
+
 Vec2 Ball::GetLoc()
 {
 	return loc;
