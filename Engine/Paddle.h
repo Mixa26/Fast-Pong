@@ -2,16 +2,21 @@
 
 #include "Vec2.h"
 #include "Graphics.h"
+#include "Ball.h"
 
 class Paddle
 {
 public:
-	Paddle(Vec2 in_loc);
+	Paddle(Vec2 in_loc, Vec2 in_speed);
 	void Draw(Graphics& in_gfx);
-	void PC();
-	bool Collision();
+	void PC(Ball& in_ball);
+	void Move(float dt);
+	void Allign();
 	int GetHeight();
 	int GetWidth();
+	Vec2 GetLoc();
+public:
+	Vec2 speed;
 private:
 	Vec2 loc;
 	constexpr static int width = 20;

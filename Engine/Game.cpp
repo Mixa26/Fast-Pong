@@ -25,8 +25,8 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	player1( Vec2(Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2) ),
-	PC( Vec2( PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2 ) ),
+	player1( Vec2(Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2), Vec2(0, 0)),
+	PC( Vec2( PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2 ), Vec2(0, 0)),
 	ball( Vec2(float(Graphics::ScreenWidth / 2 - ball.GetDimension() / 2), float(Graphics::ScreenHeight / 2 - ball.GetDimension() / 2)), Vec2(0, 0))
 {
 }
@@ -43,7 +43,23 @@ void Game::UpdateModel()
 {
 	float dt = ft.Mark();
 
+	if (wnd.kbd.KeyIsPressed(VK_UP) && player1.GetLoc().y > 0.0f)
+	{
+		player1.speed = Vec2(0, -500);
+	}
+	else if (wnd.kbd.KeyIsPressed(VK_DOWN) && player1.GetLoc().y + player1.GetHeight() < Graphics::ScreenHeight - 1.0f)
+	{
+		player1.speed = Vec2(0, 500);
+	}
+	else
+	{
+		player1.speed = Vec2(0, 0);
+	}
+
+	player1.Move(dt);
 	ball.Move(dt);
+
+	player1.Allign();
 }
 
 void Game::ComposeFrame()

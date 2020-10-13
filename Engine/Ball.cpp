@@ -26,3 +26,8 @@ void Ball::Move(float dt)
 {
 	loc += speed * dt;
 }
+
+Vec2 Ball::GetLoc()
+{
+	return loc;
+}
