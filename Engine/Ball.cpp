@@ -1,8 +1,9 @@
 #include "Ball.h"
 
-Ball::Ball(Vec2 in_loc)
+Ball::Ball(Vec2 in_loc,Vec2 in_speed)
 {
 	loc = in_loc;
+	speed = in_speed;
 }
 
 void Ball::Draw(Graphics& in_gfx)
@@ -19,4 +20,9 @@ void Ball::Draw(Graphics& in_gfx)
 int Ball::GetDimension()
 {
 	return dimension;
+}
+
+void Ball::Move(float dt)
+{
+	loc += speed * dt;
 }

@@ -7,9 +7,9 @@ Paddle::Paddle(Vec2 in_loc)
 
 void Paddle::Draw(Graphics& in_gfx)
 {
-	for (int y = loc.y; y < loc.y + height; y++)
+	for (int y = int(loc.y); y < loc.y + height; y++)
 	{
-		for (int x = loc.x; x < loc.x + width; x++)
+		for (int x = int(loc.x); x < loc.x + width; x++)
 		{
 			in_gfx.PutPixel(x, y, Colors::White);
 		}

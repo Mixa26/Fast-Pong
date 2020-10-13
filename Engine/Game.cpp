@@ -25,9 +25,9 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	player1( {Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2} ),
-	PC( { PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2 } ),
-	ball( {Graphics::ScreenWidth / 2 - ball.GetDimension() / 2, Graphics::ScreenHeight / 2 - ball.GetDimension() / 2} )
+	player1( Vec2(Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2) ),
+	PC( Vec2( PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2 ) ),
+	ball( Vec2(float(Graphics::ScreenWidth / 2 - ball.GetDimension() / 2), float(Graphics::ScreenHeight / 2 - ball.GetDimension() / 2)), Vec2(0, 0))
 {
 }
 
@@ -41,6 +41,9 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	float dt = ft.Mark();
+
+	ball.Move(dt);
 }
 
 void Game::ComposeFrame()

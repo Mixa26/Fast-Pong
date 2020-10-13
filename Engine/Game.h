@@ -26,6 +26,7 @@
 #include "Vec2.h"
 #include "Paddle.h"
 #include "Ball.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -48,5 +49,6 @@ private:
 	Paddle player1;
 	Paddle PC;
 	Ball ball;
+	FrameTimer ft;
 	/********************************/
 };
