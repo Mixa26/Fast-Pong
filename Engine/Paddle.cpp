@@ -73,11 +73,11 @@ void Paddle::Collide(Ball & in_ball)
 		{
 			if (in_ball.speed.x > 0)
 			{
-				in_ball.speed = Vec2(-600, -600);
+				in_ball.speed = Vec2(-600, -500);
 			}
 			else if (in_ball.speed.x < 0)
 			{
-				in_ball.speed = Vec2(600, -600);
+				in_ball.speed = Vec2(600, -500);
 			}
 		}
 		else if (in_ball.GetLoc().y <= loc.y + height * 50 / 100 && !hold)
@@ -106,11 +106,11 @@ void Paddle::Collide(Ball & in_ball)
 		{
 			if (in_ball.speed.x > 0)
 			{
-				in_ball.speed = Vec2(-600, 600);
+				in_ball.speed = Vec2(-600, 500);
 			}
 			else if (in_ball.speed.x < 0)
 			{
-				in_ball.speed = Vec2(600, 600);
+				in_ball.speed = Vec2(600, 500);
 			}
 		}
 		else if (in_ball.GetLoc().y < loc.y + height && !hold)

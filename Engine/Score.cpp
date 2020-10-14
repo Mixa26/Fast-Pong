@@ -26,7 +26,7 @@ bool Score::Score2(Ball & in_ball, bool& in_pause)
 	return false;
 }
 
-void Score::DrawBlock(Graphics& in_gfx, int j, int i)
+void Score::DrawBlock(Graphics& in_gfx, int i, int j)
 {
 	for (int y = j; y < j + dimension; y++)
 	{
@@ -37,31 +37,159 @@ void Score::DrawBlock(Graphics& in_gfx, int j, int i)
 	}
 }
 
-void Score::DrawScore(Vec2 in_pos, int score)
+void Score::DrawScore(Vec2 in_pos, int score, Graphics& in_gfx)
 {
 	switch (score)
 	{
 	case 0:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
 		break;
 	case 1:
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
 		break;
 	case 2:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 40);
 		break;
 	case 3:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
 		break;
 	case 4:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 40);
 		break;
 	case 5:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
 		break;
 	case 6:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 40);
 		break;
 	case 7:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 40);
 		break;
 	case 8:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 40);
 		break;
 	case 9:
+		DrawBlock(in_gfx, in_pos.x, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 40);
 		break;
 	case 10:
+		DrawBlock(in_gfx, in_pos.x - 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x - 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x - 20, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x - 20, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x - 20, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x - 20, in_pos.y + 40);
+
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x, in_pos.y + 30);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 10, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y);
+		DrawBlock(in_gfx, in_pos.x + 20, in_pos.y + 40);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
+		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
 		break;
 	}
 }
