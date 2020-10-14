@@ -37,8 +37,32 @@ void Score::DrawBlock(Graphics& in_gfx, int i, int j)
 	}
 }
 
+void Score::DrawLine(Graphics & in_gfx, int i, int j)
+{
+	for (int y = j; y < j + dimension; y++)
+	{
+		for (int x = i; x < i + 4; x++)
+		{
+			in_gfx.PutPixel(x, y, Colors::White);
+		}
+	}
+}
+
 void Score::DrawScore(Vec2 in_pos, int score, Graphics& in_gfx)
 {
+	DrawLine(in_gfx, 398, 0);
+	DrawLine(in_gfx, 398, 50);
+	DrawLine(in_gfx, 398, 100);
+	DrawLine(in_gfx, 398, 150);
+	DrawLine(in_gfx, 398, 200);
+	DrawLine(in_gfx, 398, 250);
+	DrawLine(in_gfx, 398, 300);
+	DrawLine(in_gfx, 398, 350);
+	DrawLine(in_gfx, 398, 400);
+	DrawLine(in_gfx, 398, 450);
+	DrawLine(in_gfx, 398, 500);
+	DrawLine(in_gfx, 398, 550);
+
 	switch (score)
 	{
 	case 0:
@@ -190,6 +214,48 @@ void Score::DrawScore(Vec2 in_pos, int score, Graphics& in_gfx)
 		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 10);
 		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 20);
 		DrawBlock(in_gfx, in_pos.x + 30, in_pos.y + 30);
+
+		// draws for the win
+		if (score1 == 10)
+		{
+			//prints W
+			DrawBlock(in_gfx, 175, 270);
+			DrawBlock(in_gfx, 175, 270 + 10);
+			DrawBlock(in_gfx, 175, 270 + 20);
+			DrawBlock(in_gfx, 175 + 10, 270 + 30);
+			DrawBlock(in_gfx, 175 + 20, 270 + 20);
+			DrawBlock(in_gfx, 175 + 30, 270 + 30);
+			DrawBlock(in_gfx, 175 + 40, 270);
+			DrawBlock(in_gfx, 175 + 40, 270 + 10);
+			DrawBlock(in_gfx, 175 + 40, 270 + 20);
+
+			//prints L
+			DrawBlock(in_gfx, 575, 270);
+			DrawBlock(in_gfx, 575, 270 + 10);
+			DrawBlock(in_gfx, 575, 270 + 20);
+			DrawBlock(in_gfx, 575, 270 + 30);
+			DrawBlock(in_gfx, 575 + 10, 270 + 30);
+		}
+		else if (score2 == 10)
+		{
+			//prints W
+			DrawBlock(in_gfx, 575, 270);
+			DrawBlock(in_gfx, 575, 270 + 10);
+			DrawBlock(in_gfx, 575, 270 + 20);
+			DrawBlock(in_gfx, 575 + 10, 270 + 30);
+			DrawBlock(in_gfx, 575 + 20, 270 + 20);
+			DrawBlock(in_gfx, 575 + 30, 270 + 30);
+			DrawBlock(in_gfx, 575 + 40, 270);
+			DrawBlock(in_gfx, 575 + 40, 270 + 10);
+			DrawBlock(in_gfx, 575 + 40, 270 + 20);
+
+			//prints L
+			DrawBlock(in_gfx, 175, 270);
+			DrawBlock(in_gfx, 175, 270 + 10);
+			DrawBlock(in_gfx, 175, 270 + 20);
+			DrawBlock(in_gfx, 175, 270 + 30);
+			DrawBlock(in_gfx, 175 + 10, 270 + 30);
+		}
 		break;
 	}
 }

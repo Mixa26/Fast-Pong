@@ -100,7 +100,7 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 	//all the in game graphic drawing
-	score.DrawScore(Vec2(350, 20), score.score1, gfx);
+	score.DrawScore(Vec2(310, 20), score.score1, gfx);
 	score.DrawScore(Vec2(450, 20), score.score2, gfx);
 	player1.Draw(gfx);
 	PC.Draw(gfx);

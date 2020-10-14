@@ -10,6 +10,7 @@ public:
 	bool Score1(Ball& in_ball, bool& in_pause);
 	bool Score2(Ball& in_ball, bool& in_pause);
 	void DrawBlock(Graphics& in_gfx, int i, int j);
+	void DrawLine(Graphics& in_gfx, int i, int j);
 	void DrawScore(Vec2 in_pos, int score, Graphics& in_gfx);
 public:
 	int dimension = 10;
