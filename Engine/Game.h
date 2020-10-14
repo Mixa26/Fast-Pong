@@ -27,6 +27,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "FrameTimer.h"
+#include "Score.h"
 
 class Game
 {
@@ -40,6 +41,7 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+	bool pause = false; //tells the game when its in pause mode (score or end of game)
 	/********************************/
 private:
 	MainWindow& wnd;
@@ -50,5 +52,6 @@ private:
 	Paddle PC;
 	Ball ball;
 	FrameTimer ft;
+	Score score;
 	/********************************/
 };

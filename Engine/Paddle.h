@@ -16,8 +16,10 @@ public:
 	int GetHeight();
 	int GetWidth();
 	Vec2 GetLoc();
+	void SetLoc(Vec2 in_loc);
 public:
 	Vec2 speed;
+	bool hold = false;
 private:
 	Vec2 loc;
 	constexpr static int width = 20;

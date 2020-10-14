@@ -20,6 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include <random>
 
 Game::Game( MainWindow& wnd )
 	:
@@ -27,8 +28,9 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd ),
 	player1( Vec2(Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2), Vec2(0, 0)),
 	PC( Vec2( PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2 ), Vec2(0, 0)),
-	ball( Vec2(float(Graphics::ScreenWidth / 2 - ball.GetDimension() / 2), float(Graphics::ScreenHeight / 2 - ball.GetDimension() / 2)), Vec2(500, 0))
+	ball( Vec2(float(Graphics::ScreenWidth / 2 - ball.GetDimension() / 2), float(Graphics::ScreenHeight / 2 - ball.GetDimension() / 2)), Vec2(700, 0))
 {
+	srand(time(NULL));
 }
 
 void Game::Go()
@@ -43,26 +45,53 @@ void Game::UpdateModel()
 {
 	float dt = ft.Mark();
 
-	//player paddle movement processing
-	if (wnd.kbd.KeyIsPressed(VK_UP) && player1.GetLoc().y > 0.0f)
-	{
-		player1.speed = Vec2(0, -500);
-	}
-	else if (wnd.kbd.KeyIsPressed(VK_DOWN) && player1.GetLoc().y + player1.GetHeight() < Graphics::ScreenHeight - 1.0f)
-	{
-		player1.speed = Vec2(0, 500);
-	}
-	else
-	{
-		player1.speed = Vec2(0, 0);
-	}
+	score.Score1(ball, pause);
+	score.Score2(ball, pause);
 
-	player1.Move(dt);
-	
-	ball.Move(dt);
+	//player paddle movement processing
+	if (!pause) // checks if the game is in pause (someone scored or end of game (10 points))
+	{
+		if (wnd.kbd.KeyIsPressed(VK_UP) && player1.GetLoc().y > 0.0f)
+		{
+			player1.speed = Vec2(0, -600);
+		}
+		else if (wnd.kbd.KeyIsPressed(VK_DOWN) && player1.GetLoc().y + player1.GetHeight() < Graphics::ScreenHeight - 1.0f)
+		{
+			player1.speed = Vec2(0, 600);
+		}
+		else
+		{
+			player1.speed = Vec2(0, 0);
+		}
+
+		player1.Move(dt);
+		PC.PC(ball);	//computer playing AI
+		PC.Move(dt);
+		ball.Move(dt);
+	}
+	else if (wnd.kbd.KeyIsPressed(VK_RETURN))
+	{
+		pause = false;
+		player1.SetLoc(Vec2(Graphics::ScreenWidth - player1.GetWidth() * 2, Graphics::ScreenHeight / 2 - player1.GetHeight() / 2));
+		PC.SetLoc(Vec2(PC.GetWidth(), Graphics::ScreenHeight / 2 - player1.GetHeight() / 2));
+		if (rand() % 2 == 1)
+		{
+			ball.speed = Vec2(700, 0);
+		}
+		else
+		{
+			ball.speed = Vec2(-700, 0);
+		}
+		if (score.score1 >= 10 || score.score2 >= 10)
+		{
+			score.score1 = 0;
+			score.score2 = 0;
+		}
+	}
 
 	//all the collisions to keep stuff on the screen
 	player1.Allign(); //keeps the pedals on the screen
+	PC.Allign();
 	ball.WallCollide();
 	player1.Collide(ball);
 	PC.Collide(ball);

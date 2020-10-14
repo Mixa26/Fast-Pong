@@ -13,6 +13,7 @@ public:
 	void Move(float dt);
 	void WallCollide();
 	Vec2 GetLoc();
+	void SetLoc(Vec2 in_loc);
 public:
 	Vec2 speed;
 private:

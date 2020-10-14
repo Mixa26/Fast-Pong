@@ -45,3 +45,8 @@ Vec2 Ball::GetLoc()
 {
 	return loc;
 }
+
+void Ball::SetLoc(Vec2 in_loc)
+{
+	loc = in_loc;
+}
