@@ -6,13 +6,12 @@ https://github.com/Mixa26/Fast-Pong/assets/71144280/af4c398a-ea4e-4659-b650-607e
 
 
 ## Controls<br>
-___________________________________________________<br>
+
 up arrow = paddle goes up<br>
 <br>
 down arrow = paddle goes down<br>
 <br>
 ## Realisation<br>
-___________________________________________________<br>
 
 I used a framework from a youtuber called ChiliTomatoNoodle (https://www.youtube.com/user/ChiliTomatoNoodle) which regulates the programs window,
 and the communication with the OS(graphics, input...). 
@@ -21,7 +20,6 @@ Point is scored if the ball hits the edge of the screen.
 All the graphics have been made with the "PutPixel" function so everything is drawn pixel by pixel.
 
 ## More info<br>
-___________________________________________________<br>
 
 The left player is an AI. You play as the right side.
 
