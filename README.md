@@ -1,7 +1,7 @@
 # Fast-Pong
 
 
-https://github.com/Mixa26/Fast-Pong/assets/71144280/af4c398a-ea4e-4659-b650-607eef17fc44
+![Gameplay](pictures/gameplay.gif)
 
 
 
